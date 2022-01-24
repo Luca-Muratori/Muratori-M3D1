@@ -1,22 +1,53 @@
-/* 1. Create a function to calculate the sum of the two given integers. If the two values are the same, return triple their sum. */
+/* 1. Create a function to calculate the sum of the two given integers. If the two values are the same, 
+return triple their sum. */
 
+const returnSum = function (num1, num2) {
+    num1 !== num2 ? console.log(num1 + num2) :
+        console.log((num1 + num2) * 3);
+}
+returnSum(1, 1)
+returnSum(2, 1)
 
-/* 2. Create a function to check two given integers. Return `true` if one of them is 50 or if their sum is 50. */
-
-
-/* 3. Create a function to remove a character at a specified position from a given string: pass the position and the string as parameters, return the new string. */
-
+/* 2. Create a function to check two given integers. 
+Return `true` if one of them is 50 or if their sum is 50. */
+const is50 = function (num1, num2) {
+    return num1 === 50 || num2 === 50 || (num1 + num2) === 50 ? console.log(true) :
+        console.log(false)
+}
+is50(50, 1)
+is50(2, 3)
+/* 3. Create a function to remove a character at a specified position from a given string:
+ pass the position and the string as parameters, return the new string. */
+function remove_character(str, char_pos) {
+    part1 = str.substring(0, char_pos);
+    part2 = str.substring(char_pos + 1, str.length);
+    return (part1 + part2);
+}
+console.log(remove_character('Hello Strivers', 2))
 
 /* 4. Create a function to find and return the largest of three given integers. */
-
+const returnLargest = function (num1, num2, num3) {
+    console.log(Math.max(num1, num2, num3));
+}
+returnLargest(1, 2, 4)
 
 /* 5. Create a function to check if two numbers are in the range 40-60 or 70-100. 
     Return `true` if they do, return `false` if one (or both) don't. */
-
+const checkRange = function (num1, num2) {
+    (num1 >= 40 && num1 <= 60 && num2 >= 40 && num2 <= 60) || (num1 >= 70 && num1 <= 100 && num2 >= 70 && num2 <= 100) ? console.log(true) :
+        console.log(false)
+}
+checkRange(4, 2)
+checkRange(43, 2)
+checkRange(1, 99)
+checkRange(99, 99)
 
 /* 6. Create a function to create a new string composed of a specified number of copies of a given string. 
     Pass the string and the number of copies as parameters. */
-
+const copies = function (num, str) {
+    console.log(str.repeat(num))
+}
+copies(3, 'hello')
 
 /* 7. Create a function to display the city name if the string begins with "Los" or "New". 
     Pass the city name as a parameter. Return `false` if they start with a different string. */
@@ -31,11 +62,11 @@
 
 
 /* 10. Create a function to test if an array of lenght 2 DOES NOT contain 1 or 3. 
-    Return `true` if it doesn't, `false` if it does. */ 
+    Return `true` if it doesn't, `false` if it does. */
 
 
 /* 11. Create a function to find the longest string from a given array of strings. 
-    Pass the array as parameter and return the longest string. */ 
+    Pass the array as parameter and return the longest string. */
 
 
 /* 12. Create a function to find the types of a given angle:
