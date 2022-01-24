@@ -51,23 +51,52 @@ copies(3, 'hello')
 
 /* 7. Create a function to display the city name if the string begins with "Los" or "New". 
     Pass the city name as a parameter. Return `false` if they start with a different string. */
-
+const displayCity = function (str) {
+    str.startsWith('Los') || str.startsWith('New') ? console.log(true) : console.log(false)
+}
+displayCity('Los Santos')
+displayCity('Rome')
 
 /* 8. Create a function to calculate and return the sum of all elements from an array with 3 elements. 
     Pass the array as a parameter. */
-
+const arrSum = function (arr) {
+    let sum = 0
+    for (i = 0; i < arr.length; i++) {
+        sum += arr[i]
+    }
+    console.log(`the sum is ${sum}`)
+}
+let array = [1, 3, 4]
+arrSum(array)
 
 /* 9. Create a function to test if an array of lenght 2 contains 1 OR 3. 
     Return `true` is it does, `false` if it doesn't. */
-
+const arrContain1or3 = function (arr) {
+    arr.includes(1) || arr.includes(3) ? console.log(true) : console.log(false);
+}
+let array9 = [1, 2];
+arrContain1or3(array9)
 
 /* 10. Create a function to test if an array of lenght 2 DOES NOT contain 1 or 3. 
     Return `true` if it doesn't, `false` if it does. */
-
+const arrNotContain1or3 = function (arr) {
+    arr.includes(1) || arr.includes(3) ? console.log(false) : console.log(true);
+}
+let array10 = [1, 2];
+arrNotContain1or3(array10)
 
 /* 11. Create a function to find the longest string from a given array of strings. 
     Pass the array as parameter and return the longest string. */
-
+const findLongest = function (arr) {
+    var max = arr[0].length;
+    //first we see how long is the longest string in the array
+    arr.map(v => max = Math.max(max, v.length));
+    //then we recheck if there is a string long like the longest
+    result = arr.filter(v => v.length == max);
+    console.log(result);
+}
+let arr11 = ['he', 'hello', 'hello strivers']
+findLongest(arr11)
 
 /* 12. Create a function to find the types of a given angle:
   1. Acute angle ⇒ between 0 and 90 degrees. Return `acute`.
@@ -77,13 +106,32 @@ copies(3, 'hello')
 
     Pass the angle as a parameter.
 */
+const typesAngle = function (angle) {
+    angle >= 0 && angle < 90 ? console.log('acute') :
+        angle === 90 ? console.log('right angle') :
+            angle > 90 && angle < 180 ? console.log('obtuse angle') :
+                angle === 180 ? console.log('straight angle') :
+                    console.log('Value not accepted')
+}
+typesAngle(23)
+typesAngle(90)
+typesAngle(345)
 
-
-/* 13. Create a function to find and return the index of the greatest element of a given array of integers that you passed as a parameter. */
-
+/* 13. Create a function to find and return the index of the greatest
+ element of a given array of integers that you passed as a parameter. */
+const greatestInt = function (arr) {
+    console.log(arr.indexOf(Math.max(...arr)))
+}
+let arr13 = [1, 3, 4, 67, 9, 11]
+greatestInt(arr13)
 
 /* 14. Create a function to find and return the largest **even** number from an array of integers that is passed a parameter. */
-
+const greatestEven = function (arr) {
+    let onlyEven = arr.filter(x => x % 2 == 0)
+    console.log(Math.max(...onlyEven))
+}
+let arr14 = [1, 3, 4, 67, 9, 11, 22, 34]
+greatestEven(arr14)
 
 /* 15. Create a function to check from two given integers (passed as parameters) if one is positive and the other is negative. 
     Return `true` if that's the case, return `false` if it's not. */
