@@ -135,15 +135,36 @@ greatestEven(arr14)
 
 /* 15. Create a function to check from two given integers (passed as parameters) if one is positive and the other is negative. 
     Return `true` if that's the case, return `false` if it's not. */
+const checkInteger = function (num1, num2) {
+    num1 > 0 && num2 < 0 ? console.log(true) : console.log(false)
+}
+checkInteger(1, -2)
+checkInteger(-9, 2)
+checkInteger(-1, -2)
 
-
-/* 16. Create a function to create and return a new string where the first 3 characters and in lower case and the others are in upper case. 
+/* 16. Create a function to create and return a new string where the first 3 characters are in lower case and the others are in upper case. 
     If the string's length is less than 3, convert the whole string into uppercase. Pass the original string as a parameter. */
+const toUpperCase = function (str) {
+    if (str.length <= 3) {
+        console.log(str.toUpperCase());
+    } else {
+        front_part = (str.substring(0, 3)).toLowerCase();
+        back_part = str.substring(3, str.length).toUpperCase();
+        console.log(front_part + back_part);
+    }
 
+}
+toUpperCase('jfk')
+toUpperCase('Hello Strivers')
 
 /* 17. Create a function to calculate the sum of two integers (passed as parameters). 
     If the sum is in the 50-80 range, return `65`, otherwise, return `80`. */
-
+const sumIntegers = function (num1, num2) {
+    let sum = num1 + num2
+    sum >= 50 && sum <= 80 ? console.log(65) : console.log(80)
+}
+sumIntegers(2, 48)
+sumIntegers(2, 90)
 
 /* 18. Create a function to convert a number (passed as a parameter) into a string, basing yourself on this example: 
     The number has 3 as a factor ⇒ return `Diego`
@@ -152,7 +173,29 @@ greatestEven(arr14)
     If the number does not have 3,5, or 7, return the original number. 
     ⚠️ The factor is an integer which evenly divides a number without leaving a remainder. One number can have more than one factor, in that case you should return both names. 
 Ex. 15 has both 3 and 5 has factors: the function will return `DiegoRiccardo` */
-
+const factorTranslate = function (num) {
+    num % 3 === 0 && num % 5 !== 0 && num % 7 !== 0 ? console.log('Diego') :
+        num % 5 === 0 && num % 3 !== 0 && num % 7 !== 0 ? console.log('Riccardo') :
+            num % 7 === 0 && num % 3 !== 0 && num % 5 !== 0 ? console.log('Stefano') :
+                num % 3 === 0 && num % 5 === 0 && num % 7 !== 0 ? console.log('DiegoRiccardo') :
+                    num % 5 === 0 && num % 7 === 0 && num % 3 !== 0 ? console.log('RiccardoStefano') :
+                        num % 7 === 0 && num % 3 === 0 && num % 5 !== 0 ? console.log('StefanoDiego') :
+                            num % 7 === 0 && num % 5 === 0 && num % 3 === 0 ? console.log('StefanoDiegoRiccardo') :
+                                console.log(num)
+}
+factorTranslate(105)
 
 /* 19. Create a function that that takes a phrase as a parameter and returns its acronym.
 Ex. British Broadcasting Corporation returns `BBC` */
+const acronymGenerator = function (str) {
+    for (let i = 0; i < str.length; i++) {
+        if (str[i - 1] === ' ') {
+            return str[i - 1]
+        } else {
+            str[i].pop()
+        }
+    }
+    str.concat('')
+    console.log(str)
+}
+acronymGenerator('Hello strivers from another dimension')
