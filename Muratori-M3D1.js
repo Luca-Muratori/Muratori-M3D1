@@ -249,3 +249,90 @@ function reversedInt(int) {
 }
 console.log(reversedInt(-2300000))
 console.log(reversedInt(-123456))
+
+//Write a function that takes a positive number X as a parameter. 
+//The function should output (as console.log) a step shaped string
+// with X level using the # character. Make sure the steps are on the right hand side:
+function shapeGenerator(int) {
+    for (let i = 0; i < int; i++) {
+        let step = ' ';
+        for (let j = 0; j < int; j++) {
+            if (j <= i) {
+                step += '#'
+            } else {
+                step += ' ';
+            }
+        }
+        console.log(step)
+    }
+}
+shapeGenerator(3)
+
+//Create a function that, given a string as a parameter,
+//returns a new string which is the original string, but reversed: "hello" ⇒ “olleh”
+function reversedString(str) {
+    let reversed = str.split('').reverse().join('')
+    return reversed
+}
+
+console.log(reversedString('hello'))
+
+// Create a function that takes an array and a "chunk size" as parameters.
+// Divide the array into subarrays with the "chunk size" as length:
+//  array: [1, 2, 3, 4], chunk size: 2 →[[1, 2], [3, 4]] array: [1, 2, 3, 4, 5],
+//   chunk size: 4 →[[1, 2, 3, 4], [5]]
+function splitArrayIntoChunksOfLen(arr, len) {
+    var chunks = [], i = 0, n = arr.length;
+    while (i < n) {
+        chunks.push(arr.slice(i, i += len));
+    }
+    return chunks;
+}
+var arr = [1, 2, 3, 4, 5, 6];
+console.log(splitArrayIntoChunksOfLen(arr, 5));
+
+// Write a function that accepts a positive number X as parameter.The function should
+//  console.log a pyramid shape with N levels built using the # character. 
+function pyramid(int) {
+    for (i = 1; i <= int; i++) {
+        let str = ' '.repeat(int - i);
+        let str2 = '*'.repeat(i * 2 - 1)
+        console.log(str + str2 + str);
+    }
+}
+pyramid(7)
+
+
+// Write a function that accepts an integer N and returns a NxN spiral matrix:
+function matrix(n) {
+    let result = new Array(n).fill().map(() => new Array(n).fill('')); // create empty n x n array
+    let counter = 1;
+    let startCol = 0;
+    let endCol = n - 1;
+    let startRow = 0;
+    let endRow = n - 1;
+    while (startCol <= endCol && startRow <= endRow) {
+        for (let i = startCol; i <= endCol; i++) {
+            result[startRow][i] = counter;
+            counter++;
+        }
+        startRow++;
+        for (let j = startRow; j <= endRow; j++) {
+            result[j][endCol] = counter;
+            counter++;
+        }
+        endCol--;
+        for (let i = endCol; i >= startCol; i--) {
+            result[endRow][i] = counter;
+            counter++;
+        }
+        endRow--;
+        for (let i = endRow; i >= startRow; i--) {
+            result[i][startCol] = counter;
+            counter++;
+        }
+        startCol++;
+    }
+    return result;
+}
+console.log(matrix(4))
